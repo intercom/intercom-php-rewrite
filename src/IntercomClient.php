@@ -36,7 +36,10 @@ class IntercomClient {
   {
     $this->http_client->request('POST', 'https://api.intercom.io/users', [
       'json' => $json,
-      'auth' => $this->getAuth()
+      'auth' => $this->getAuth(),
+      'headers' => [
+        'Accept' => 'application/json'
+      ]
     ]);
   }
 
