@@ -14,6 +14,6 @@ class IntercomUsers {
 
   public function create($options)
   {
-    $this->client->post("users", $options);
+    return $this->client->post("users", $options);
   }
 }

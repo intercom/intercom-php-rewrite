@@ -19,7 +19,7 @@ class IntercomClient {
     $this->users = new IntercomUsers($this);
 
     $this->usernamePart = $usernamePart;
-    $this->$passwordPart = $passwordPart;
+    $this->passwordPart = $passwordPart;
   }
 
   private function setDefaultClient()
@@ -34,7 +34,7 @@ class IntercomClient {
 
   public function post($endpoint, $json)
   {
-    $this->http_client->request('POST', 'https://api.intercom.io/users', [
+    return $this->http_client->request('POST', 'https://api.intercom.io/users', [
       'json' => $json,
       'auth' => $this->getAuth(),
       'headers' => [
@@ -43,7 +43,7 @@ class IntercomClient {
     ]);
   }
 
-  private function getAuth()
+  public function getAuth()
   {
     return [$this->usernamePart, $this->passwordPart];
   }
