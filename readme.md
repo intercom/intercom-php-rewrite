@@ -39,3 +39,15 @@ echo $client->events->create([
 // View events for a user
 $client->events->getEvents(["email" => "bob@intercom.io"]);
 ```
+
+## Companies
+
+```php
+// Create a company
+echo $client->companies->create([
+  "name" => "foocorp", "id" => "3"
+]);
+
+// List Companies
+$client->companies->getCompanies([])
+```
