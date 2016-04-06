@@ -22,5 +22,5 @@ $client->users->create([
 ]);
 
 // Find user by email
-$client->users->getUsers(['email' => 'bob@intercom.io'])->getBody();
+$client->users->getUsers(['email' => 'bob@intercom.io']);
 ```
