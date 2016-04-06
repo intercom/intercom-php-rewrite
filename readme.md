@@ -30,7 +30,7 @@ $client->users->getUsers(['email' => 'bob@intercom.io']);
 
 ```php
 // Create an event
-echo $client->events->create([
+$client->events->create([
   "event_name" => "testing",
   "created_at" => 1391691571,
   "email" => "test@intercom.io"
@@ -44,7 +44,7 @@ $client->events->getEvents(["email" => "bob@intercom.io"]);
 
 ```php
 // Create a company
-echo $client->companies->create([
+$client->companies->create([
   "name" => "foocorp", "id" => "3"
 ]);
 
