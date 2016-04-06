@@ -4,7 +4,7 @@ namespace Intercom;
 
 use GuzzleHttp\Client;
 
-class IntercomEvents {
+class IntercomCompanies {
   private $client;
 
   public function __construct($client)
@@ -14,11 +14,11 @@ class IntercomEvents {
 
   public function create($options)
   {
-    return $this->client->post("events", $options);
+    return $this->client->post("companies", $options);
   }
 
-  public function getEvents($options)
+  public function getCompanies($options)
   {
-    return $this->client->get("events", array_merge(["type" => "user"], $options));
+    return $this->client->get("companies", $options);
   }
 }

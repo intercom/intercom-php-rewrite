@@ -18,6 +18,7 @@ class IntercomClient {
     $this->setDefaultClient();
     $this->users = new IntercomUsers($this);
     $this->events = new IntercomEvents($this);
+    $this->companies = new IntercomCompanies($this);
 
     $this->usernamePart = $usernamePart;
     $this->passwordPart = $passwordPart;
@@ -46,7 +47,7 @@ class IntercomClient {
 
   public function get($endpoint, $query)
   {
-    return $this->http_client->request('GET', 'https://api.intercom.io/users', [
+    return $this->http_client->request('GET', "https://api.intercom.io/$endpoint", [
       'query' => $query,
       'auth' => $this->getAuth(),
       'headers' => [
