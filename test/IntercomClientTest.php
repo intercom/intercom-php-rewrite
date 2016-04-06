@@ -30,7 +30,7 @@ class IntercomClientTest extends PHPUnit_Framework_TestCase {
 
     foreach ($container as $transaction) {
       $basic = $transaction['request']->getHeaders()['Authorization'][0];
-      $this->assertTrue($basic == "Basic dTo=");
+      $this->assertTrue($basic == "Basic dTpw");
     }
   }
 }
