@@ -43,6 +43,17 @@ class IntercomClient {
     ]);
   }
 
+  public function get($endpoint, $query)
+  {
+    return $this->http_client->request('GET', 'https://api.intercom.io/users', [
+      'query' => $query,
+      'auth' => $this->getAuth(),
+      'headers' => [
+        'Accept' => 'application/json'
+      ]
+    ]);
+  }
+
   public function getAuth()
   {
     return [$this->usernamePart, $this->passwordPart];
