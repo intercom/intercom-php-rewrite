@@ -51,3 +51,23 @@ $client->companies->create([
 // List Companies
 $client->companies->getCompanies([])
 ```
+
+## Messages
+
+```php
+// Send a message from an admin to a user
+// See more options here: https://developers.intercom.io/reference#conversations
+$client->messages->create([
+  "message_type" => "inapp",
+  "subject" => "Hey",
+  "body" => "Ponies, cute small horses or something more sinister?",
+  "from" => [
+    "type" => "admin",
+    "id" => "1234"
+  ],
+  "to" => [
+    "type" => "user",
+    "email" => "bob@intercom.io"
+  ]
+])
+```
