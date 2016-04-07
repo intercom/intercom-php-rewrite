@@ -71,3 +71,14 @@ $client->messages->create([
   ]
 ])
 ```
+
+## conversations
+
+```php
+// List conversations for an admin
+// See more options here: https://developers.intercom.io/reference#list-conversations
+$client->conversations->getConversations([
+  "type" => "admin",
+  "admin_id" => "25610"
+])
+```
