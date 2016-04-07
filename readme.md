@@ -71,3 +71,26 @@ $client->messages->create([
   ]
 ])
 ```
+
+## conversations
+
+```php
+// List conversations for an admin
+// See more options here: https://developers.intercom.io/reference#list-conversations
+$client->conversations->getConversations([
+  "type" => "admin",
+  "admin_id" => "25610"
+])
+
+// Get a single conversation
+$client->conversations->getConversation("1234")
+
+// Reply to a conversation
+// See more options here: https://developers.intercom.io/reference#replying-to-a-conversation
+$client->conversations->replyToConversation("5678", [
+  "email" => "test@intercom.io",
+  "body" => "Thanks :)",
+  "type" => "user",
+  "message_type" => "comment"
+])
+```
