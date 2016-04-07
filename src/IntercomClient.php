@@ -19,6 +19,7 @@ class IntercomClient {
     $this->users = new IntercomUsers($this);
     $this->events = new IntercomEvents($this);
     $this->companies = new IntercomCompanies($this);
+    $this->messages = new IntercomMessages($this);
 
     $this->usernamePart = $usernamePart;
     $this->passwordPart = $passwordPart;
