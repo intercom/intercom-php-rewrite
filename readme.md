@@ -26,6 +26,34 @@ $client->users->create([
 $client->users->getUsers(['email' => 'bob@intercom.io']);
 ```
 
+## Leads
+
+```php
+// Create/update a lead
+// See more options here: https://developers.intercom.io/reference#create-lead
+$client->leads->create([]);
+
+// List leads
+// See more options here: https://developers.intercom.io/reference#list-leads
+$client->leads->getLeads([]);
+
+// Find a lead by ID
+$client->leads->getLead("570680a8a1bcbca8a90000a9");
+
+// Delete a lead by ID
+$client->leads->deleteLead("570680a8a1bcbca8a90000a9");
+
+// Convert a Lead to a User
+$leads->convertLead([
+  "contact" => [
+    "user_id" => "8a88a590-e1c3-41e2-a502-e0649dbf721c"
+  ],
+  "user" => [
+    "email" => "winstonsmith@truth.org"
+  ]
+]);
+```
+
 ## Events
 
 ```php
