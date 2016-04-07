@@ -21,6 +21,7 @@ class IntercomClient {
     $this->companies = new IntercomCompanies($this);
     $this->messages = new IntercomMessages($this);
     $this->conversations = new IntercomConversations($this);
+    $this->leads = new IntercomLeads($this);
 
     $this->usernamePart = $usernamePart;
     $this->passwordPart = $passwordPart;
@@ -39,6 +40,17 @@ class IntercomClient {
   public function post($endpoint, $json)
   {
     return $this->http_client->request('POST', "https://api.intercom.io/$endpoint", [
+      'json' => $json,
+      'auth' => $this->getAuth(),
+      'headers' => [
+        'Accept' => 'application/json'
+      ]
+    ]);
+  }
+
+  public function delete($endpoint, $json)
+  {
+    return $this->http_client->request('DELETE', "https://api.intercom.io/$endpoint", [
       'json' => $json,
       'auth' => $this->getAuth(),
       'headers' => [
