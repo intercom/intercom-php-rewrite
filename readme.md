@@ -72,7 +72,7 @@ $client->messages->create([
 ])
 ```
 
-## conversations
+## Conversations
 
 ```php
 // List conversations for an admin
