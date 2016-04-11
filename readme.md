@@ -80,6 +80,13 @@ $client->companies->create([
 $client->companies->getCompanies([])
 ```
 
+## Admins
+
+```php
+// List admins
+$client->admins->getAdmins()
+```
+
 ## Messages
 
 ```php
