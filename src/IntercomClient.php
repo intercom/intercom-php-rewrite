@@ -3,15 +3,40 @@
 namespace Intercom;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
+use function GuzzleHttp\Psr7\stream_for;
 
 class IntercomClient {
 
+  /** @var Client $http_client */
   private $http_client;
 
-  public $usernamePart;
-  public $passwordPart;
+  /** @var string API user authentication */
+  protected $usernamePart;
 
-  public $users;
+  /** @var string API password authentication */
+  protected $passwordPart;
+
+  /** @var IntercomUsers $users */
+  protected $users;
+
+  /** @var IntercomEvents $events */
+  protected $events;
+
+  /** @var IntercomCompanies $companies */
+  protected $companies;
+
+  /** @var IntercomMessages $messages */
+  protected $messages;
+
+  /** @var IntercomConversations $conversations */
+  protected $conversations;
+
+  /** @var IntercomLeads $leads */
+  protected $leads;
+
+  /** @var IntercomAdmins $admins */
+  protected $admins;
 
   public function __construct($usernamePart, $passwordPart)
   {
@@ -40,39 +65,48 @@ class IntercomClient {
 
   public function post($endpoint, $json)
   {
-    return $this->http_client->request('POST', "https://api.intercom.io/$endpoint", [
+    $response = $this->http_client->request('POST', "https://api.intercom.io/$endpoint", [
       'json' => $json,
       'auth' => $this->getAuth(),
       'headers' => [
         'Accept' => 'application/json'
       ]
     ]);
+    return $this->handleResponse($response);
   }
 
   public function delete($endpoint, $json)
   {
-    return $this->http_client->request('DELETE', "https://api.intercom.io/$endpoint", [
+    $response = $this->http_client->request('DELETE', "https://api.intercom.io/$endpoint", [
       'json' => $json,
       'auth' => $this->getAuth(),
       'headers' => [
         'Accept' => 'application/json'
       ]
     ]);
+    return $this->handleResponse($response);
   }
 
   public function get($endpoint, $query)
   {
-    return $this->http_client->request('GET', "https://api.intercom.io/$endpoint", [
+    $response = $this->http_client->request('GET', "https://api.intercom.io/$endpoint", [
       'query' => $query,
       'auth' => $this->getAuth(),
       'headers' => [
         'Accept' => 'application/json'
       ]
     ]);
+    return $this->handleResponse($response);
   }
 
   public function getAuth()
   {
     return [$this->usernamePart, $this->passwordPart];
+  }
+
+  private function handleResponse(Response $response){
+    $stream = stream_for($response->getBody());
+    $data = json_decode($stream->getContents());
+    return $data;
   }
 }
