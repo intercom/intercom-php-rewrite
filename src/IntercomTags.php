@@ -4,12 +4,11 @@ namespace Intercom;
 
 use GuzzleHttp\Client;
 
-class IntercomTags {
-  private $client;
+class IntercomTags extends IntercomEndpoint {
 
-  public function __construct($client)
+  public function __construct(Client $client)
   {
-    $this->client = $client;
+    parent::__construct($client);
   }
 
   public function tag($options)
