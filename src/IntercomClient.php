@@ -38,6 +38,9 @@ class IntercomClient {
   /** @var IntercomAdmins $admins */
   protected $admins;
 
+  /** @var IntercomTags $tags */
+  protected $tags;
+
   public function __construct($usernamePart, $passwordPart)
   {
     $this->setDefaultClient();
