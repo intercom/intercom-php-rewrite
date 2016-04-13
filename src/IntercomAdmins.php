@@ -5,9 +5,11 @@ namespace Intercom;
 use GuzzleHttp\Client;
 
 class IntercomAdmins {
+
+  /** @var Client $client */
   private $client;
 
-  public function __construct($client)
+  public function __construct(Client $client)
   {
     $this->client = $client;
   }

@@ -2,14 +2,11 @@
 
 namespace Intercom;
 
-use GuzzleHttp\Client;
-
-class IntercomCompanies {
-  private $client;
-
-  public function __construct($client)
+class IntercomCompanies extends IntercomEndpoint{
+  
+  public function __construct(Client $client)
   {
-    $this->client = $client;
+    parent::__construct($client);
   }
 
   public function create($options)

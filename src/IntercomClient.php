@@ -47,6 +47,9 @@ class IntercomClient {
   /** @var IntercomBulk $bulk */
   public $bulk;
 
+  /** @var IntercomTags $tags */
+  protected $tags;
+
   public function __construct($usernamePart, $passwordPart)
   {
     $this->setDefaultClient();
