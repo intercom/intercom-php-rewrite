@@ -111,6 +111,17 @@ class IntercomClient {
     return $this->handleResponse($response);
   }
 
+  public function nextPage($pages)
+  {
+    $response = $this->http_client->request('GET', $pages['next'], [
+      'auth' => $this->getAuth(),
+      'headers' => [
+        'Accept' => 'application/json'
+      ]
+    ]);
+    return $this->handleResponse($response);
+  }
+
   public function getAuth()
   {
     return [$this->usernamePart, $this->passwordPart];
