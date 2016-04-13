@@ -77,14 +77,14 @@ $client->companies->create([
 ]);
 
 // List Companies
-$client->companies->getCompanies([])
+$client->companies->getCompanies([]);
 ```
 
 ## Admins
 
 ```php
 // List admins
-$client->admins->getAdmins()
+$client->admins->getAdmins();
 ```
 
 ## Messages
@@ -104,7 +104,7 @@ $client->messages->create([
     "type" => "user",
     "email" => "bob@intercom.io"
   ]
-])
+]);
 ```
 
 ## Conversations
@@ -115,7 +115,7 @@ $client->messages->create([
 $client->conversations->getConversations([
   "type" => "admin",
   "admin_id" => "25610"
-])
+]);
 
 // Get a single conversation
 $client->conversations->getConversation("1234")
@@ -127,7 +127,7 @@ $client->conversations->replyToConversation("5678", [
   "body" => "Thanks :)",
   "type" => "user",
   "message_type" => "comment"
-])
+]);
 ```
 
 ## Counts
@@ -145,11 +145,11 @@ $client->counts->getCounts([])
 // See more options here: https://developers.intercom.io/reference#bulk-user-operations
 $client->bulk->users([
   "items" => [ /* ... */ ]
-])
+]);
 
 // Bulk create/update users
 // See more options here: https://developers.intercom.io/reference#bulk-event-operations
 $client->bulk->events([
   "items" => [ /* ... */ ]
-])
+]);
 ```
