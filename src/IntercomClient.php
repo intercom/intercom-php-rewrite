@@ -41,6 +41,9 @@ class IntercomClient {
   /** @var IntercomTags $tags */
   public $tags;
 
+  /** @var IntercomCounts $counts */
+  public $counts;
+
   public function __construct($usernamePart, $passwordPart)
   {
     $this->setDefaultClient();
@@ -52,6 +55,7 @@ class IntercomClient {
     $this->leads = new IntercomLeads($this);
     $this->admins = new IntercomAdmins($this);
     $this->tags = new IntercomTags($this);
+    $this->counts = new IntercomCounts($this);
 
     $this->usernamePart = $usernamePart;
     $this->passwordPart = $passwordPart;

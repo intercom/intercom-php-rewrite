@@ -129,3 +129,11 @@ $client->conversations->replyToConversation("5678", [
   "message_type" => "comment"
 ])
 ```
+
+## Counts
+
+```php
+// List counts
+// See more options here: https://developers.intercom.io/reference#getting-counts
+$client->counts->getCounts([])
+```
