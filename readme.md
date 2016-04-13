@@ -137,3 +137,19 @@ $client->conversations->replyToConversation("5678", [
 // See more options here: https://developers.intercom.io/reference#getting-counts
 $client->counts->getCounts([])
 ```
+
+## Bulk
+
+```php
+// Bulk create/update users
+// See more options here: https://developers.intercom.io/reference#bulk-user-operations
+$client->bulk->users([
+  "items" => [ /* ... */ ]
+])
+
+// Bulk create/update users
+// See more options here: https://developers.intercom.io/reference#bulk-event-operations
+$client->bulk->events([
+  "items" => [ /* ... */ ]
+])
+```
