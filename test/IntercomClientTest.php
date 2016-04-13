@@ -33,4 +33,31 @@ class IntercomClientTest extends PHPUnit_Framework_TestCase {
       $this->assertTrue($basic == "Basic dTpw");
     }
   }
+
+  public function testPaginationHelper()
+  {
+    $mock = new MockHandler([
+      new Response(200, ['X-Foo' => 'Bar'], "{\"foo\":\"bar\"}")
+    ]);
+
+    $container = [];
+    $history = Middleware::history($container);
+    $stack = HandlerStack::create($mock);
+    $stack->push($history);
+
+    $http_client = new Client(['handler' => $stack]);
+
+    $client = new IntercomClient('u', 'p');
+    $client->setClient($http_client);
+
+    $client->nextPage([
+      'next' => 'https://foo.com'
+    ]);
+
+    foreach ($container as $transaction) {
+      $host = $transaction['request']->getUri()->getHost();
+      $this->assertTrue($host == "foo.com");
+    }
+  }
+
 }
