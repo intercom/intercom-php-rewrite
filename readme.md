@@ -153,3 +153,24 @@ $client->bulk->events([
   "items" => [ /* ... */ ]
 ]);
 ```
+
+## Notes
+
+```php
+// Create a note
+$client->notes->create([
+  "admin_id" => "21",
+  "body" => "Text for my note",
+  "user" => [
+    "id" => "5310d8e8598c9a0b24000005"
+  ]
+]);
+
+// List notes for a user
+$client->notes->getNotes([
+  "user_id" => "25"
+]);
+
+// Get a single Note by id
+$client->notes->getNote("42");
+```
