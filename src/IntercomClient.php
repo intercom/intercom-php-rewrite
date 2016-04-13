@@ -18,25 +18,28 @@ class IntercomClient {
   protected $passwordPart;
 
   /** @var IntercomUsers $users */
-  protected $users;
+  public $users;
 
   /** @var IntercomEvents $events */
-  protected $events;
+  public $events;
 
   /** @var IntercomCompanies $companies */
-  protected $companies;
+  public $companies;
 
   /** @var IntercomMessages $messages */
-  protected $messages;
+  public $messages;
 
   /** @var IntercomConversations $conversations */
-  protected $conversations;
+  public $conversations;
 
   /** @var IntercomLeads $leads */
-  protected $leads;
+  public $leads;
 
   /** @var IntercomAdmins $admins */
-  protected $admins;
+  public $admins;
+
+  /** @var IntercomTags $tags */
+  public $tags;
 
   public function __construct($usernamePart, $passwordPart)
   {
